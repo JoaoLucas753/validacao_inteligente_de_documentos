@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/34055863/README.md)
 # 📄 Validação Inteligente de Documentos
 
 > Da análise manual à automação com IA: uma solução que recebe documentos digitais, extrai informações com **OCR + Inteligência Artificial**, valida **regras de negócio** e disponibiliza o resultado de forma estruturada.
