@@ -4,11 +4,6 @@
 
 Projeto do semestre — **Mentoria Avanade 2026.2 · Recife · Residência Tecnológica**
 
-**Grupo:** A
-**Integrantes:** _(preencher nomes)_
-
----
-
 ## 📑 Sumário
 
 1. [O problema](#1-o-problema)
@@ -416,20 +411,6 @@ Os testes garantem que as regras funcionam, principalmente os casos de borda:
 ```bash
 mvn test
 ```
-
----
-
-## 17. Entregas do semestre
-
-| Período | Entrega |
-|---|---|
-| 14 a 18/09 | **Entrega parcial** — proposta da solução |
-| 28/09 | **Encerramento das trilhas** |
-| 11 a 14/11 | **REC'N'PLAY 2026** — apresentações |
-| 30/11 a 04/12 | **Avaliação final** — demo do projeto |
-
-🏆 **Entrega final:** solução funcional, com demo, explicação das decisões técnicas e todos os aprendizados do time.
-
 ---
 
 ## 🎯 Benefícios do projeto
