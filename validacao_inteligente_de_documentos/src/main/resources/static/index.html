@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validação Inteligente de Documentos · Enviar comprovante</title>
+<style>
+  :root {
+    --brand: #0d9488;
+    --brand-dark: #0f766e;
+    --brand-soft: #ccfbf1;
+    --ink: #0f172a;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --ok: #16a34a;
+    --ok-soft: #dcfce7;
+    --err: #dc2626;
+    --err-soft: #fee2e2;
+    --warn-soft: #fef3c7;
+    --warn: #92400e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 32px; background: var(--card); border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    width: 36px; height: 36px; border-radius: 10px; background: var(--brand);
+    color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 18px;
+  }
+  .brand b { display: block; font-size: 17px; }
+  .brand span { font-size: 12px; color: var(--muted); }
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 24px 56px; }
+  h1 { margin: 0 0 4px; font-size: 30px; }
+  .sub { margin: 0 0 24px; color: var(--muted); }
+
+  /* Passos */
+  .steps { display: flex; list-style: none; padding: 0; margin: 0 0 24px; gap: 8px; }
+  .steps li { flex: 1; display: flex; align-items: center; gap: 10px; position: relative; }
+  .steps li::after { content: ""; flex: 1; height: 2px; background: var(--line); margin-left: 6px; }
+  .steps li:last-child::after { display: none; }
+  .dot {
+    width: 34px; height: 34px; border-radius: 50%; background: #cbd5e1; color: #fff;
+    display: grid; place-items: center; font-weight: 700; flex: none;
+  }
+  .steps strong { display: block; font-size: 14px; }
+  .steps small { color: var(--muted); font-size: 12px; }
+  .steps li.active .dot { background: var(--brand); }
+  .steps li.active strong { color: var(--brand-dark); }
+  .steps li.done .dot { background: var(--ok); }
+  .steps li.done::after { background: var(--ok); }
+
+  .grid { display: grid; grid-template-columns: 1fr 320px; gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .card h2 { margin: 0 0 14px; font-size: 20px; }
+  .card h3 { margin: 0 0 10px; font-size: 15px; }
+
+  label { font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px; }
+  select {
+    width: 100%; max-width: 360px; padding: 10px 12px; border: 1px solid var(--line);
+    border-radius: 8px; font-size: 15px; background: #fff; margin-bottom: 18px;
+  }
+
+  .drop {
+    border: 2px dashed #94a3b8; border-radius: 12px; padding: 34px 16px; text-align: center;
+    background: #f1f5f9; transition: .15s; cursor: pointer;
+  }
+  .drop.over { border-color: var(--brand); background: var(--brand-soft); }
+  .drop svg { width: 48px; height: 48px; stroke: var(--brand); }
+  .drop p { margin: 10px 0 2px; font-weight: 600; }
+  .drop small { color: var(--muted); }
+
+  button {
+    font: inherit; cursor: pointer; border-radius: 8px; padding: 10px 18px;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+  }
+  button.primary { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 600; }
+  button.primary:hover:not(:disabled) { background: var(--brand-dark); }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  .drop button { margin-top: 14px; }
+
+  .file {
+    display: none; align-items: center; justify-content: space-between; gap: 12px;
+    border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 14px;
+  }
+  .file.show { display: flex; }
+  .file small { color: var(--muted); display: block; }
+  .file .x { border: none; background: none; font-size: 20px; color: var(--muted); padding: 0 6px; }
+
+  .actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .msg { margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 14px; display: none; }
+  .msg.show { display: block; }
+  .msg.info { background: var(--brand-soft); color: var(--brand-dark); }
+  .msg.erro { background: var(--err-soft); color: var(--err); }
+
+  aside .card { margin-bottom: 16px; padding: 18px; }
+  aside ul { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+  aside li { padding: 7px 0; }
+  aside li small { display: block; color: var(--muted); }
+  .tips li::before { content: "✓"; color: var(--ok); font-weight: 700; margin-right: 8px; }
+  .important { background: var(--warn-soft); border-color: #fde68a !important; color: var(--warn); font-size: 14px; }
+  .important b { display: block; margin-bottom: 4px; }
+
+  /* Resultado */
+  #resultado { display: none; margin-top: 24px; }
+  #resultado.show { display: block; }
+  .badge { display: inline-block; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; }
+  .badge.APROVADO { background: var(--ok-soft); color: var(--ok); }
+  .badge.REPROVADO { background: var(--err-soft); color: var(--err); }
+  .res-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .res-head h2 { margin: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  td, th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; width: 180px; }
+  .motivos { margin: 0 0 14px; padding-left: 20px; color: var(--err); }
+
+  #historico { margin-top: 24px; }
+  .vazio { color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: 1fr; }
+    .steps small { display: none; }
+    header { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">V</div>
+  <div class="brand"><b>Validação Inteligente</b><span>de Documentos</span></div>
+</header>
+
+<main>
+  <h1>Enviar comprovante</h1>
+  <p class="sub">Faça o upload do documento para iniciarmos a extração das informações.</p>
+
+  <ol class="steps" id="steps">
+    <li class="active" data-step="1"><span class="dot">1</span><div><strong>Upload</strong><small>Envio do documento</small></div></li>
+    <li data-step="2"><span class="dot">2</span><div><strong>Processamento</strong><small>OCR e extração</small></div></li>
+    <li data-step="3"><span class="dot">3</span><div><strong>Validação</strong><small>Regras de negócio</small></div></li>
+    <li data-step="4"><span class="dot">4</span><div><strong>Resultado</strong><small>Aprovado ou reprovado</small></div></li>
+  </ol>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Selecione o documento</h2>
+
+      <label for="tipo">Tipo de documento</label>
+      <select id="tipo">
+        <option value="COMPROVANTE_RESIDENCIA">Comprovante de residência</option>
+        <option value="DOCUMENTO_IDENTIFICACAO" disabled>RG / CNH (em breve)</option>
+      </select>
+
+      <div class="drop" id="drop" tabindex="0">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 18a4 4 0 0 1-.7-7.9A5.5 5.5 0 0 1 17 8.5a4.5 4.5 0 0 1 0 9.5"/><path d="M12 12v8M9 15l3-3 3 3"/>
+        </svg>
+        <p>Clique para selecionar ou arraste o arquivo aqui</p>
+        <small>Formatos: PDF, PNG, JPG (máx. 10 MB)</small><br>
+        <button type="button" class="primary" id="btnSelecionar">Selecionar arquivo</button>
+        <input type="file" id="arquivo" accept=".pdf,.png,.jpg,.jpeg" hidden>
+      </div>
+
+      <div class="file" id="file">
+        <div><span id="fileName"></span><small id="fileSize"></small></div>
+        <button type="button" class="x" id="btnRemover" aria-label="Remover arquivo">×</button>
+      </div>
+
+      <div class="msg" id="msg"></div>
+
+      <div class="actions">
+        <button type="button" id="btnCancelar">Cancelar</button>
+        <button type="button" class="primary" id="btnProcessar" disabled>Processar documento →</button>
+      </div>
+    </section>
+
+    <aside>
+      <div class="card">
+        <h3>Exemplos de comprovantes</h3>
+        <ul>
+          <li>Conta de água<small>Ex.: Compesa, Sabesp etc.</small></li>
+          <li>Conta de luz<small>Ex.: Neoenergia, Enel etc.</small></li>
+          <li>Conta de telefone<small>Ex.: Vivo, Claro, TIM etc.</small></li>
+          <li>Fatura de cartão<small>De banco ou operadora</small></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Dicas para um bom resultado</h3>
+        <ul class="tips">
+          <li>Imagem nítida e sem cortes</li>
+          <li>Documento inteiro e legível</li>
+          <li>Sem reflexos ou sombras</li>
+          <li>Texto visível e alinhado</li>
+          <li>Arquivo de até 10 MB</li>
+        </ul>
+      </div>
+      <div class="card important">
+        <b>Importante</b>
+        Use um documento recente (últimos 90 dias) e no seu nome. Documentos inválidos serão reprovados pela validação.
+      </div>
+    </aside>
+  </div>
+
+  <section class="card" id="resultado" aria-live="polite"></section>
+
+  <section class="card" id="historico">
+    <h2>Meus envios</h2>
+    <div id="listaHistorico" class="vazio">Carregando…</div>
+  </section>
+</main>
+
+<script>
+  const API = "/api/validacoes";
+  const MAX_BYTES = 10 * 1024 * 1024;
+  const $ = (s) => document.querySelector(s);
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  let arquivo = null;
+
+  const drop = $("#drop"), inputArquivo = $("#arquivo"), btnProcessar = $("#btnProcessar");
+
+  // ---------- utilidades ----------
+  function esc(valor) {
+    return String(valor ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+  function formatarData(iso) {
+    if (!iso) return "—";
+    const [a, m, d] = iso.split("T")[0].split("-");
+    return `${d}/${m}/${a}`;
+  }
+  function formatarTamanho(bytes) {
+    return bytes < 1024 * 1024 ? Math.round(bytes / 1024) + " KB" : (bytes / 1024 / 1024).toFixed(1) + " MB";
+  }
+  function mostrarMsg(texto, tipo) {
+    const el = $("#msg");
+    el.textContent = texto;
+    el.className = "msg show " + (tipo || "info");
+  }
+  function limparMsg() { $("#msg").className = "msg"; }
+
+  function setStep(n) {
+    document.querySelectorAll("#steps li").forEach((li) => {
+      const i = Number(li.dataset.step);
+      li.classList.toggle("done", i < n);
+      li.classList.toggle("active", i === n);
+    });
+  }
+
+  // ---------- seleção de arquivo ----------
+  function escolher(file) {
+    limparMsg();
+    if (!file) return;
+    if (!/\.(pdf|png|jpe?g)$/i.test(file.name)) {
+      return mostrarMsg("Formato inválido. Envie PDF, PNG ou JPG.", "erro");
+    }
+    if (file.size > MAX_BYTES) {
+      return mostrarMsg("Arquivo maior que 10 MB.", "erro");
+    }
+    arquivo = file;
+    $("#fileName").textContent = file.name;
+    $("#fileSize").textContent = formatarTamanho(file.size);
+    $("#file").classList.add("show");
+    btnProcessar.disabled = false;
+    $("#resultado").classList.remove("show");
+    setStep(1);
+  }
+
+  function remover() {
+    arquivo = null;
+    inputArquivo.value = "";
+    $("#file").classList.remove("show");
+    btnProcessar.disabled = true;
+    limparMsg();
+    setStep(1);
+  }
+
+  $("#btnSelecionar").addEventListener("click", (e) => { e.stopPropagation(); inputArquivo.click(); });
+  drop.addEventListener("click", () => inputArquivo.click());
+  drop.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") inputArquivo.click(); });
+  inputArquivo.addEventListener("change", () => escolher(inputArquivo.files[0]));
+  $("#btnRemover").addEventListener("click", remover);
+  $("#btnCancelar").addEventListener("click", () => { remover(); $("#resultado").classList.remove("show"); });
+
+  ["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+  ["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+  drop.addEventListener("drop", (e) => escolher(e.dataTransfer.files[0]));
+
+  // ---------- processamento ----------
+  btnProcessar.addEventListener("click", async () => {
+    if (!arquivo) return;
+    btnProcessar.disabled = true;
+    setStep(2);
+    mostrarMsg("Lendo o documento (OCR) e extraindo as informações…");
+
+    const form = new FormData();
+    form.append("tipo", $("#tipo").value);
+    form.append("arquivo", arquivo);
+
+    try {
+      const res = await fetch(API, { method: "POST", body: form });
+      if (!res.ok) {
+        let texto = "Não foi possível processar o documento.";
+        try { const erro = await res.json(); texto = erro.message || texto; } catch (_) { /* sem corpo JSON */ }
+        throw new Error(texto);
+      }
+      const resultado = await res.json();
+      setStep(3);
+      await sleep(500);
+      setStep(4);
+      limparMsg();
+      mostrarResultado(resultado);
+      carregarHistorico();
+    } catch (e) {
+      setStep(1);
+      mostrarMsg(e.message, "erro");
+    } finally {
+      btnProcessar.disabled = false;
+    }
+  });
+
+  function mostrarResultado(r) {
+    const d = r.dados || {};
+    const motivos = (r.motivos || []).length
+      ? `<ul class="motivos">${r.motivos.map((m) => `<li>${esc(m)}</li>`).join("")}</ul>` : "";
+    $("#resultado").innerHTML = `
+      <div class="res-head">
+        <h2>Resultado da validação</h2>
+        <span class="badge ${esc(r.status)}">${r.status === "APROVADO" ? "✓ Aprovado" : "✕ Reprovado"}</span>
+      </div>
+      ${motivos}
+      <table>
+        <tr><th>Nome</th><td>${esc(d.nome) || "—"}</td></tr>
+        <tr><th>CPF</th><td>${esc(d.cpf) || "—"}</td></tr>
+        <tr><th>Endereço</th><td>${esc(d.endereco) || "—"}</td></tr>
+        <tr><th>CEP</th><td>${esc(d.cep) || "—"}</td></tr>
+        <tr><th>Cidade / UF</th><td>${esc([d.cidade, d.estado].filter(Boolean).join(" / ")) || "—"}</td></tr>
+        <tr><th>Data de emissão</th><td>${formatarData(d.dataEmissao)}</td></tr>
+        <tr><th>Protocolo</th><td>#${esc(r.id)}</td></tr>
+      </table>`;
+    $("#resultado").classList.add("show");
+    $("#resultado").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  // ---------- histórico ----------
+  async function carregarHistorico() {
+    const alvo = $("#listaHistorico");
+    try {
+      const res = await fetch(API);
+      if (!res.ok) throw new Error();
+      const lista = await res.json();
+      if (!lista.length) {
+        alvo.className = "vazio";
+        alvo.textContent = "Nenhum envio ainda.";
+        return;
+      }
+      alvo.className = "";
+      alvo.innerHTML = `<table>
+        <tr><th style="width:80px">#</th><th>Arquivo</th><th style="width:150px">Data</th><th style="width:130px">Status</th></tr>
+        ${lista.map((r) => `
+          <tr>
+            <td>${esc(r.id)}</td>
+            <td>${esc(r.nomeArquivo)}</td>
+            <td>${esc(new Date(r.criadoEm).toLocaleString("pt-BR"))}</td>
+            <td><span class="badge ${esc(r.status)}">${esc(r.status)}</span></td>
+          </tr>`).join("")}
+      </table>`;
+    } catch (_) {
+      alvo.className = "vazio";
+      alvo.textContent = "Não foi possível carregar o histórico.";
+    }
+  }
+
+  carregarHistorico();
+</script>
+</body>
+</html>

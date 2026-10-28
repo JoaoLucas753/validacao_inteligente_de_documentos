@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1190 640" width="1190" height="640" role="img" aria-label="Fluxo da solução Validação Inteligente de Documentos">
+<defs>
+<marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="#0d9488"/></marker></defs>
+<rect x="0" y="0" width="1190" height="640" rx="0" fill="#f8fafc" stroke="none" stroke-width="1.5"/>
+<rect x="0" y="0" width="1190" height="86" rx="0" fill="#0f766e" stroke="none" stroke-width="1.5"/>
+<text x="40" y="40" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="start">Validação Inteligente de Documentos · Fluxo da solução</text>
+<text x="40" y="68" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#ccfbf1" text-anchor="start">Do documento enviado ao resultado consultável: cada etapa tem um papel claro.</text>
+<rect x="50" y="130" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="50" y="130" width="240" height="8" rx="4" fill="#0d9488" stroke="none" stroke-width="1.5"/>
+<circle cx="80" cy="172" r="16" fill="#0d9488"/>
+<text x="80" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+<text x="106" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Documento recebido</text>
+<text x="70" y="218" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">Usuário envia PDF,</text>
+<text x="70" y="238" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">PNG ou JPG (até 10 MB)</text>
+<rect x="70" y="258" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="170.0" y="277" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#0d9488" text-anchor="middle">Tela web</text>
+<rect x="346" y="130" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="346" y="130" width="240" height="8" rx="4" fill="#0d9488" stroke="none" stroke-width="1.5"/>
+<circle cx="376" cy="172" r="16" fill="#0d9488"/>
+<text x="376" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+<text x="402" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Upload</text>
+<text x="366" y="218" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">A API recebe o arquivo</text>
+<text x="366" y="238" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">e o tipo do documento</text>
+<rect x="366" y="258" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="466.0" y="277" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#0d9488" text-anchor="middle">REST · multipart</text>
+<rect x="642" y="130" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="642" y="130" width="240" height="8" rx="4" fill="#7c3aed" stroke="none" stroke-width="1.5"/>
+<circle cx="672" cy="172" r="16" fill="#7c3aed"/>
+<text x="672" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+<text x="698" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Leitura (OCR)</text>
+<text x="662" y="218" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">Imagem ou PDF</text>
+<text x="662" y="238" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">vira texto</text>
+<rect x="662" y="258" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="762.0" y="277" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#7c3aed" text-anchor="middle">Tesseract · PDFBox</text>
+<rect x="938" y="130" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="938" y="130" width="240" height="8" rx="4" fill="#d97706" stroke="none" stroke-width="1.5"/>
+<circle cx="968" cy="172" r="16" fill="#d97706"/>
+<text x="968" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+<text x="994" y="178" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Extração (IA)</text>
+<text x="958" y="218" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">O texto vira JSON</text>
+<text x="958" y="238" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">com os campos</text>
+<rect x="958" y="258" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="1058.0" y="277" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#d97706" text-anchor="middle">OpenAI ou Regex</text>
+<rect x="938" y="390" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="938" y="390" width="240" height="8" rx="4" fill="#2563eb" stroke="none" stroke-width="1.5"/>
+<circle cx="968" cy="432" r="16" fill="#2563eb"/>
+<text x="968" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+<text x="994" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Regras de negócio</text>
+<text x="958" y="478" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">Legível, nome, endereço,</text>
+<text x="958" y="498" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">CPF e emissão &lt; 90 dias</text>
+<rect x="958" y="518" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="1058.0" y="537" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#2563eb" text-anchor="middle">Spring Boot</text>
+<rect x="642" y="390" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="642" y="390" width="240" height="8" rx="4" fill="#16a34a" stroke="none" stroke-width="1.5"/>
+<circle cx="672" cy="432" r="16" fill="#16a34a"/>
+<text x="672" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+<text x="698" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Aprovado / Reprovado</text>
+<text x="662" y="478" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">Decisão final com</text>
+<text x="662" y="498" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">lista de motivos</text>
+<rect x="662" y="518" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="762.0" y="537" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#16a34a" text-anchor="middle">Regras R1 a R5</text>
+<rect x="346" y="390" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="346" y="390" width="240" height="8" rx="4" fill="#475569" stroke="none" stroke-width="1.5"/>
+<circle cx="376" cy="432" r="16" fill="#475569"/>
+<text x="376" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">7</text>
+<text x="402" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Armazena no banco</text>
+<text x="366" y="478" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">Salva dados, status</text>
+<text x="366" y="498" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">e motivos</text>
+<rect x="366" y="518" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="466.0" y="537" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">JPA · PostgreSQL</text>
+<rect x="50" y="390" width="240" height="170" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="50" y="390" width="240" height="8" rx="4" fill="#0f766e" stroke="none" stroke-width="1.5"/>
+<circle cx="80" cy="432" r="16" fill="#0f766e"/>
+<text x="80" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">8</text>
+<text x="106" y="438" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Consulta do resultado</text>
+<text x="70" y="478" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">Tela web e API para</text>
+<text x="70" y="498" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="start">consultar o histórico</text>
+<rect x="70" y="518" width="200" height="28" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="170.0" y="537" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="600" fill="#0f766e" text-anchor="middle">GET /api/validacoes</text>
+<line x1="294" y1="215.0" x2="340" y2="215.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<line x1="590" y1="215.0" x2="636" y2="215.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<line x1="886" y1="215.0" x2="932" y2="215.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<line x1="1058.0" y1="300" x2="1058.0" y2="386" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<line x1="934" y1="475.0" x2="888" y2="475.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<line x1="638" y1="475.0" x2="592" y2="475.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<line x1="342" y1="475.0" x2="296" y2="475.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<rect x="50" y="585" width="560" height="40" rx="10" fill="#dcfce7" stroke="none" stroke-width="1.5"/>
+<text x="66" y="610" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#166534" text-anchor="start">Aprovado: todos os dados extraídos e todas as regras atendidas.</text>
+<rect x="630" y="585" width="510" height="40" rx="10" fill="#fee2e2" stroke="none" stroke-width="1.5"/>
+<text x="646" y="610" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#991b1b" text-anchor="start">Reprovado: ilegível, dados ausentes ou emissão ≥ 90 dias.</text>
+</svg>

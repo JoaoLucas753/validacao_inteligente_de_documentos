@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-label="Arquitetura e exemplo passo a passo do Validação Inteligente de Documentos">
+<defs>
+<marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L10 5 L0 10 z" fill="#0d9488"/></marker></defs>
+<rect x="0" y="0" width="1200" height="700" rx="0" fill="#f8fafc" stroke="none" stroke-width="1.5"/>
+<rect x="0" y="0" width="1200" height="86" rx="0" fill="#1e293b" stroke="none" stroke-width="1.5"/>
+<text x="40" y="40" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="start">Validação Inteligente · Arquitetura e passo a passo</text>
+<text x="40" y="68" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="400" fill="#cbd5e1" text-anchor="start">Preparar → ler → interpretar → validar → persistir</text>
+<rect x="37" y="110" width="175" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M37 122 a12 12 0 0 1 12 -12 h151 a12 12 0 0 1 12 12 v22 h-175 z" fill="#64748b"/>
+<text x="49" y="134" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">1 · Documento</text>
+<text x="49" y="172" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">O usuário envia</text>
+<text x="49" y="194" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">PDF, PNG ou JPG</text>
+<text x="49" y="216" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">pela tela web</text>
+<line x1="213" y1="185.0" x2="226" y2="185.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<rect x="227" y="110" width="175" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M227 122 a12 12 0 0 1 12 -12 h151 a12 12 0 0 1 12 12 v22 h-175 z" fill="#0d9488"/>
+<text x="239" y="134" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">2 · OpenCV</text>
+<text x="239" y="172" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">Melhora a imagem:</text>
+<text x="239" y="194" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">ruído, rotação,</text>
+<text x="239" y="216" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">contraste</text>
+<rect x="239" y="226" width="84" height="22" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="281" y="242" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="11.5" font-weight="600" fill="#0d9488" text-anchor="middle">opcional</text>
+<line x1="403" y1="185.0" x2="416" y2="185.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<rect x="417" y="110" width="175" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M417 122 a12 12 0 0 1 12 -12 h151 a12 12 0 0 1 12 12 v22 h-175 z" fill="#7c3aed"/>
+<text x="429" y="134" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">3 · Tesseract</text>
+<text x="429" y="172" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">Reconhece os</text>
+<text x="429" y="194" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">caracteres e devolve</text>
+<text x="429" y="216" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">texto (String)</text>
+<line x1="593" y1="185.0" x2="606" y2="185.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<rect x="607" y="110" width="175" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M607 122 a12 12 0 0 1 12 -12 h151 a12 12 0 0 1 12 12 v22 h-175 z" fill="#d97706"/>
+<text x="619" y="134" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">4 · IA (LLM)</text>
+<text x="619" y="172" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">Entende o texto e</text>
+<text x="619" y="194" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">devolve JSON com</text>
+<text x="619" y="216" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">os campos</text>
+<rect x="619" y="226" width="84" height="22" rx="8" fill="#f1f5f9" stroke="none" stroke-width="1.5"/>
+<text x="661" y="242" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="11.5" font-weight="600" fill="#d97706" text-anchor="middle">ou Regex</text>
+<line x1="783" y1="185.0" x2="796" y2="185.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<rect x="797" y="110" width="175" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M797 122 a12 12 0 0 1 12 -12 h151 a12 12 0 0 1 12 12 v22 h-175 z" fill="#2563eb"/>
+<text x="809" y="134" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">5 · Spring Boot</text>
+<text x="809" y="172" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">Aplica as regras</text>
+<text x="809" y="194" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">R1 a R5 e decide</text>
+<text x="809" y="216" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">aprovado/reprovado</text>
+<line x1="973" y1="185.0" x2="986" y2="185.0" stroke="#0d9488" stroke-width="3" marker-end="url(#seta)"/>
+<rect x="987" y="110" width="175" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<path d="M987 122 a12 12 0 0 1 12 -12 h151 a12 12 0 0 1 12 12 v22 h-175 z" fill="#16a34a"/>
+<text x="999" y="134" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">6 · Banco + API</text>
+<text x="999" y="172" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">Salva no PostgreSQL</text>
+<text x="999" y="194" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">e expõe o resultado</text>
+<text x="999" y="216" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#334155" text-anchor="start">pela API REST</text>
+<rect x="37" y="290" width="350" height="300" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="37" y="290" width="350" height="36" rx="12" fill="#7c3aed" stroke="none" stroke-width="1.5"/>
+<rect x="37" y="310" width="350" height="16" rx="0" fill="#7c3aed" stroke="none" stroke-width="1.5"/>
+<text x="51" y="314" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">3 · Texto devolvido pelo OCR</text>
+<text x="53" y="356" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">COMPROVANTE DE RESIDÊNCIA</text>
+<text x="53" y="380" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">Nome: João da Silva</text>
+<text x="53" y="404" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">CPF: 529.982.247-25</text>
+<text x="53" y="428" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">Endereço: Rua das Flores, 150</text>
+<text x="53" y="452" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">CEP: 46430-000</text>
+<text x="53" y="476" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">Guanambi - BA</text>
+<text x="53" y="500" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">Data de emissão: 10/08/2026</text>
+<rect x="407" y="290" width="350" height="300" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="407" y="290" width="350" height="36" rx="12" fill="#d97706" stroke="none" stroke-width="1.5"/>
+<rect x="407" y="310" width="350" height="16" rx="0" fill="#d97706" stroke="none" stroke-width="1.5"/>
+<text x="421" y="314" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">4 · JSON devolvido pela IA</text>
+<text x="423" y="356" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">{</text>
+<text x="423" y="380" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "nome": "João da Silva",</text>
+<text x="423" y="404" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "cpf": "529.982.247-25",</text>
+<text x="423" y="428" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "endereco": "Rua das Flores, 150",</text>
+<text x="423" y="452" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "cep": "46430000",</text>
+<text x="423" y="476" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "cidade": "Guanambi",</text>
+<text x="423" y="500" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "estado": "BA",</text>
+<text x="423" y="524" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">  "dataEmissao": "2026-08-10"</text>
+<text x="423" y="548" font-family="Consolas, Menlo, DejaVu Sans Mono, monospace" font-size="13" font-weight="400" fill="#1e293b" text-anchor="start">}</text>
+<rect x="777" y="290" width="386" height="300" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="777" y="290" width="386" height="36" rx="12" fill="#16a34a" stroke="none" stroke-width="1.5"/>
+<rect x="777" y="310" width="386" height="16" rx="0" fill="#16a34a" stroke="none" stroke-width="1.5"/>
+<text x="791" y="314" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start">5 · Resultado da validação</text>
+<rect x="793" y="342" width="150" height="38" rx="19" fill="#dcfce7" stroke="none" stroke-width="1.5"/>
+<text x="868" y="368" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#166534" text-anchor="middle">APROVADO</text>
+<text x="797" y="414" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#16a34a" text-anchor="start">✓</text>
+<text x="823" y="414" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#334155" text-anchor="start">R1  Documento legível</text>
+<text x="797" y="444" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#16a34a" text-anchor="start">✓</text>
+<text x="823" y="444" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#334155" text-anchor="start">R2  Nome identificado</text>
+<text x="797" y="474" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#16a34a" text-anchor="start">✓</text>
+<text x="823" y="474" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#334155" text-anchor="start">R3  Endereço identificado</text>
+<text x="797" y="504" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#16a34a" text-anchor="start">✓</text>
+<text x="823" y="504" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#334155" text-anchor="start">R4  Emissão há menos de 90 dias</text>
+<text x="797" y="534" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#16a34a" text-anchor="start">✓</text>
+<text x="823" y="534" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="500" fill="#334155" text-anchor="start">R5  CPF válido</text>
+<text x="797" y="580" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#64748b" text-anchor="start">Status e dados salvos no banco.</text>
+<text x="37" y="622" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#475569" text-anchor="start">Sem IA?  Extraia com palavras-chave + Regex (já incluído como alternativa no projeto).</text>
+<text x="37" y="648" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748b" text-anchor="start">IA multimodal: alguns modelos recebem a imagem direto, sem Tesseract (menos etapas).</text>
+<text x="37" y="674" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#64748b" text-anchor="start">Para ensino, o fluxo com OpenCV + Tesseract + IA mostra claramente o papel de cada tecnologia.</text>
+</svg>

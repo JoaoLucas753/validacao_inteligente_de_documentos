@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: validacao-db
+    environment:
+      POSTGRES_DB: validacao
+      POSTGRES_USER: validacao
+      POSTGRES_PASSWORD: validacao
+    ports:
+      - "5432:5432"
+    volumes:
+      - validacao-data:/var/lib/postgresql/data
+
+volumes:
+  validacao-data:
